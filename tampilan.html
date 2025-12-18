@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan Tiket Traveling</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 15px;
+    }
+    .card-body h3 {
+      margin: 0;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background: #007bff;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Menu Pemesanan Tiket Traveling</h2>
+
+  <div class="menu">
+    <div class="card">
+      <img src="4545.jpg" alt="Jakarta">
+      <div class="card-body">
+        <h3>Jakarta</h3>
+        <p class="price">Rp 150.000</p>
+        <button onclick="pesan('Jakarta',150000)">Pesan</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="2025.jpg" alt="Bandung">
+      <div class="card-body">
+        <h3>Bandung</h3>
+        <p class="price">Rp 130.000</p>
+        <button onclick="pesan('Bandung',130000)">Pesan</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="8989.jpg" alt="Yogyakarta">
+      <div class="card-body">
+        <h3>Yogyakarta</h3>
+        <p class="price">Rp 180.000</p>
+        <button onclick="pesan('Yogyakarta',180000)">Pesan</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="2024.jpg" alt="Surabaya">
+      <div class="card-body">
+        <h3>Surabaya</h3>
+        <p class="price">Rp 200.000</p>
+        <button onclick="pesan('Surabaya',200000)">Pesan</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result" id="hasil">
+    <h3>Detail Pemesanan</h3>
+    <p>Belum ada pesanan</p>
+  </div>
+
+  <script>
+    function pesan(tujuan, harga) {
+      const jumlah = prompt('Masukkan jumlah tiket:', 1);
+      if (jumlah === null || jumlah <= 0) return;
+
+      const total = harga * jumlah;
+
+      document.getElementById('hasil').innerHTML = `
+        <h3>Detail Pemesanan</h3>
+        <p>Tujuan: ${tujuan}</p>
+        <p>Jumlah Tiket: ${jumlah}</p>
+        <p><strong>Total Bayar: Rp ${total.toLocaleString()}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
